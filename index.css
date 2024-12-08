@@ -1,0 +1,71 @@
+body {
+    background-color: #C2927A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#stick {
+    width: 2rem;
+    height: 20rem;
+    top: 23rem;
+    background-color: #421200;
+    position: absolute;
+}
+
+.line {
+    position: relative;
+    width: 10rem;
+    height: 0;
+    margin: 1rem;
+}
+
+.line > div {
+    height: 2rem;
+    background-color: green;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.line .leaf:nth-child(3n) {
+    background-color: lightgreen;
+}
+
+.line > div:first-child {
+    transform: rotate(-45deg);
+    top: 2rem;
+    left: -3.8rem;
+    animation: lyingDownLeft 5s 1;
+}
+
+.line > div:last-child {
+    transform: rotate(45deg);
+    top: 2rem;
+    right: -3.8rem;
+    animation: lyingDownRight 5s 1;
+}
+
+@keyframes lyingDownLeft{
+    from{
+        rotate: 45deg;
+        top: 0;
+    }
+    to{
+        transform: rotate(-45deg);
+        top: 2rem;
+    }
+}
+
+@keyframes lyingDownRight{
+    from{
+        rotate: -45deg;
+        top: 0;
+    }
+    to{
+        transform: rotate(45deg);
+        top: 2rem;
+    }
+}
