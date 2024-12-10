@@ -13,7 +13,7 @@ body {
     height: 30rem;
     background-color: green;
     bottom: 0;
-    animation: stemGrowing 1.5s 1;
+    animation: stemGrowing 2.5s 1;
     position: absolute;
     border-radius: 25%;
     border: solid #29b129 2px;
