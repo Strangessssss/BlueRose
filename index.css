@@ -7,6 +7,7 @@ body {
     justify-content: center;
     width: 100%;
     animation: dayToNightToDay 10s infinite ease-in-out;
+    overflow: hidden;
 }
 
 #stem-1{
