@@ -1,5 +1,6 @@
 
 let petals = $("#flower-1 .petal");
+let leaf = $("#leaf");
 
 
 $(function () {
@@ -23,8 +24,7 @@ $("#stem-1").on("animationend", function () {
         }`;
         styleSheet.insertRule(keyframes, styleSheet.cssRules.length)
         $(this).css("animation", `rotateDynamic${degree} 3s linear forwards`);
-
-
         degree += changeDegree;
     })
+    leaf.css("animation", `shaking 10s infinite ease-in-out`);
 });

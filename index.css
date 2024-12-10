@@ -1,11 +1,12 @@
 body {
-    background-color: rgba(0, 226, 255, 0.25);
+    background-color: #000612;
     min-height: 100vh;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    animation: dayToNightToDay 10s infinite ease-in-out;
 }
 
 #stem-1{
@@ -17,6 +18,19 @@ body {
     position: absolute;
     border-radius: 25%;
     border: solid #29b129 2px;
+}
+
+#leaf{
+    width: 5rem;
+    height: 10rem;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #29b129;
+    border: solid #076c07 5px;
+    translate: 4rem;
+    rotate: 45deg;
+    animation: leafRaising 2.5s 1;
+    bottom: 15rem;
 }
 
 .petal{
@@ -38,6 +52,39 @@ body {
     bottom: 10rem;
 }
 
+#ground{
+    position: fixed;
+    width: 40rem;
+    height: 40%;
+    background-color: #082b00;
+    bottom: -8rem;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+#moon{
+    position: fixed;
+    width: 10rem;
+    height: 10rem;
+    top: 4rem;
+    left: -10rem;
+    z-index: -1;
+    animation: orbitsMoving 10s infinite ease-in-out;
+}
+
+#sun{
+    position: fixed;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: #d6c200;
+    top: 4rem;
+    left: -10rem;
+    z-index: -1;
+    animation: orbitsMoving 10s infinite ease-in-out;
+    animation-delay: 5s;
+}
+
 @keyframes stemGrowing{
     from{
         height: 0;
@@ -47,12 +94,50 @@ body {
     }
 }
 
+@keyframes orbitsMoving{
+    0%{
+        translate: 0;
+    }
+    50%{
+        translate: 18rem -2rem;
+    }
+    100%{
+        translate: 40rem 0;
+    }
+}
+
+@keyframes dayToNightToDay{
+    0%{
+        background-color: #77b6ff;
+    }
+    50%{
+        background-color: #000612;
+    }
+    100%{
+        background-color: #77b6ff;
+    }
+}
+
 @keyframes flowerRaising{
     from{
         bottom: -17rem;
     }
     to{
         bottom: 10rem;
+    }
+}
+
+@keyframes leafRaising{
+    from{
+        bottom: 0;
+        height: 0;
+        width: 0;
+        translate: -0.7rem;
+    }
+    to{
+        bottom: 15rem;
+        height: 10rem;
+        width: 5rem;
     }
 }
 
@@ -67,6 +152,22 @@ body {
     }
 }
 
+@keyframes shaking{
+    0%{
+        transform: rotate(0deg);
+    }
+    33%{
+        transform: rotate(-15deg);
+        translate: 50px;
+    }
+    66%{
+        transform: rotate(15deg);
+        translate: 70px 20px;
+    }
+    99%{
+        transform: rotate(0deg);
+    }
+}
 
 
 
