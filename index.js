@@ -1,24 +1,30 @@
+
+let petals = $("#flower-1 .petal");
+
+
 $(function () {
-    $('.leaf').each(function (index) {
-
-        if ((index + 1) % 2 === 0) {
-            $(this).css("background-color", "#004c10");
-        }
-        if ((index + 1) % 3 === 0) {
-            $(this).css("background-color", "#006a14");
-        }
-        if ((index + 1) % 4 === 0) {
-            $(this).css("background-color", "#005311");
-        }
-        console.log(123);
-    });
-
-    $(".line > div:last-child").each(function () {
-        $(this).css("width", random(5, 10).toString + "rem");
-    })
 });
 
+$("#stem-1").on("animationend", function () {
+    let degree = -10;
+    const changeDegree = degree * -2;
+    petals.each(function () {
+        const styleSheet = document.styleSheets[0];
+        const keyframes = `
+        @keyframes rotateDynamic${degree} {
+            0% {
+                transform: rotate(0deg);
+                translate: 0;
+            }
+            100% {
+                transform: rotate(${degree}deg);
+                translate: ${degree / 12.5}rem;
+            }
+        }`;
+        styleSheet.insertRule(keyframes, styleSheet.cssRules.length)
+        $(this).css("animation", `rotateDynamic${degree} 3s linear forwards`);
 
-function random(min, max) { // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+
+        degree += changeDegree;
+    })
+});
